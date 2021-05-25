@@ -26,7 +26,6 @@ const drawLines = (lAB, lBC, lCA, coordA, coordB, coordC) => {
     // --- 
 
 }
-
 // vypočítá a doplní zbývající hodnoty v reakci na stisk tlačítka a vyplnění hodnot
 const calculate = (e) => {
     document.getElementById("sideA").value = a;
@@ -34,10 +33,7 @@ const calculate = (e) => {
     document.getElementById("sideC").value = c;
     var Perimeter = a + b + c;
     var halfPerimeter = (Perimeter / 2);
-    var alpha = 2 * Math.asin(Math.sqrt(((halfPerimeter - b)*(halfPerimeter - c)) / (b * c)));
-    var beta = 2 * Math.asin(Math.sqrt(((halfPerimeter - c)*(halfPerimeter - a)) / (a * c)));
-    var gamma = 2 * Math.asin(Math.sqrt(((halfPerimeter - a)*(halfPerimeter - b)) / (a * b)));
-    var halfPerimeter
+    var alpha = Number(2 * Math.asin(Math.sqrt(((halfPerimeter - b)*(halfPerimeter - c)) / (b * c))));
     document.getElementById("alpha").value = alpha;
     document.getElementById("beta").value = beta;
     document.getElementById("gamma").value = gamma;
