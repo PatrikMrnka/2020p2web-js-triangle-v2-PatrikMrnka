@@ -29,6 +29,7 @@ const drawLines = (lAB, lBC, lCA, coordA, coordB, coordC) => {
 // vypočítá a doplní zbývající hodnoty v reakci na stisk tlačítka a vyplnění hodnot
 const calculate = (e) => {
     //var button = document.getElementsByTagName("button")[0];
+    //button.onload = init
     let triangle1 = new triangle(a,b,c);
     document.getElementById("sideA").value = a;
     document.getElementById("sideB").value = b;
