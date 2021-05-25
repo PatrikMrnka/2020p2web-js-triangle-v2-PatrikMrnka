@@ -28,15 +28,31 @@ const drawLines = (lAB, lBC, lCA, coordA, coordB, coordC) => {
 }
 // vypočítá a doplní zbývající hodnoty v reakci na stisk tlačítka a vyplnění hodnot
 const calculate = (e) => {
+    //var button = document.getElementsByTagName("button")[0];
+    let triangle1 = new triangle(a,b,c);
     document.getElementById("sideA").value = a;
     document.getElementById("sideB").value = b;
     document.getElementById("sideC").value = c;
-    var Perimeter = a + b + c;
-    var halfPerimeter = (Perimeter / 2);
-    var alpha = Number(2 * Math.asin(Math.sqrt(((halfPerimeter - b)*(halfPerimeter - c)) / (b * c))));
-    document.getElementById("alpha").value = alpha;
-    document.getElementById("beta").value = beta;
-    document.getElementById("gamma").value = gamma;
+    document.getElementById("alpha").value = triangle1.Alpha;
+    document.getElementById("beta").value = triangle1.Beta;
+    document.getElementById("gamma").value = triangle1.Gamma;
+    document.getElementById("perimeter").value = triangle1.Perimeter;
+    document.getElementById("content").value = triangle1.Content;
+
+    if(triangle1.Constructable) {
+        console.log("lze sestrojit");
+        document.getElementById("result-feedback").className = "alert alert-success";
+        document.getElementById("result-feedback").innerHTML = "Trojuhelník lze sestrojit"
+    } else {
+        console.log("nelze sestrojit");
+        document.getElementById("result-feedback").className = "alert alert-danger";
+        document.getElementById("result-feedback").innerHTML = "Trojuhelník nelze sestrojit"
+        document.getElementById("alpha").value = "Nelze";
+        document.getElementById("beta").value = "Nelze";
+        document.getElementById("gamma").value = "Nelze";
+        document.getElementById("perimeter").value = "Nelze";
+        document.getElementById("content").value = "Nelze";
+    }
 }
 
 // inicializační kód
